@@ -1,0 +1,88 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Новый пациент</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="mx-auto" style="width: 900px;">
+    <h1>НОВЫЙ ПАЦИЕНТ</h1>
+    <form action="/patient/add" th:object="${patient}" method="post">
+        <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label">ФИО:</label>
+            <div class="col-sm-5">
+                <input type="text" th:field="*{name}" class="form-control" placeholder="Фамилия Имя Отчество"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Паспорт:</label>
+            <div class="col-sm-5">
+                <input type="text" th:field="*{passport}" class="form-control" placeholder="Серия и номер паспорта"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Дата рождения:</label>
+            <div class="col-sm-5">
+                <input type="date" name="date" class="form-control" placeholder="Дата рождения"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option1" name="option1" class="custom-control-input" value=true th:field="*{male}">
+                <label class="custom-control-label" for="option1">пол мужской</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option2" name="option2" class="custom-control-input" value=false th:field="*{male}">
+                <label class="custom-control-label" for="option2">пол женский</label>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+    </form>
+</div>
+</body>
+</html>
+
+<!--
+<div class="mx-auto" style="width: 900px;">
+    <h1>НОВЫЙ ПАЦИЕНТ</h1>
+    <form action="/patient/add" method="post">
+        <div class="form-group row mt-3">
+            <label class="col-sm-2 col-form-label">ФИО:</label>
+            <div class="col-sm-5">
+                <input type="text" name="name" class="form-control" placeholder="Фамилия Имя Отчество"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Паспорт:</label>
+            <div class="col-sm-5">
+                <input type="text" name="passport" class="form-control" placeholder="Серия и номер паспорта"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Дата рождения:</label>
+            <div class="col-sm-5">
+                <input type="text" name="birthday" class="form-control" placeholder="Дата рождения"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option1" name="option1" class="custom-control-input" value="1" th:field="">
+                <label class="custom-control-label" for="option1">пол мужской</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="option2" name="option2" class="custom-control-input" value="2">
+                <label class="custom-control-label" for="option2">пол женский</label>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+    </form>
+</div>-->
